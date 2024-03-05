@@ -69,30 +69,5 @@ def callback(request):
     else:
         return HttpResponseBadRequest()
 
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    print("event.reply_token:", event.reply_token)
-    print("event.message.text:", event.message.text)
-    if event.message.text.lower() == "hello":
-        content = 'hi~'
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=content))
-        return 0
-
-    # if event.message.text == "來張 imgur 正妹圖片":
-    #     client = ImgurClient(client_id, client_secret)
-    #     images = client.get_album_images(album_id)
-    #     index = random.randint(0, len(images) - 1)
-    #     url = images[index].link
-    #     image_message = ImageSendMessage(
-    #         original_content_url=url,
-    #         preview_image_url=url
-    #     )
-    #     line_bot_api.reply_message(
-    #         event.reply_token, image_message)
-    #     return 0
-
-
 if __name__ == '__main__':
     app.run()
