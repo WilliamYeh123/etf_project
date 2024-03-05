@@ -5,3 +5,4 @@ line-bot-sdk==2.3.0
 imgurpython==1.1.7
 yfinance==0.2.37
 Werkzeug==2.2.2
+Django==5.0.3
