@@ -1,6 +1,6 @@
 services:
 - type: web
-  name: etf_project
+  name: etf_fl
   env: python
   repo: https://github.com/WilliamYeh123/etf_project
   buildCommand: pip install gunicorn -r requirements.txt
