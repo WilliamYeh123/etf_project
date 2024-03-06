@@ -56,6 +56,8 @@ reply = ''
 def fiveline(type):
     if type == 'etf':
         id_list = etf_list
+    elif type == 'stock':
+        id_list = stock_list
     for id in id_list:
         #print(id)
         TaiwanStockTotalReturnIndex = api.taiwan_stock_daily(
