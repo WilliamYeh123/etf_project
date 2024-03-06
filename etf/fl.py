@@ -19,7 +19,7 @@ start = end - datetime.timedelta(days=365*3.5)
 #etf1 = ['0050','0051','0056', '00850', '006205', '00645', '00646', '00662', '00631L', '00632R', '00633L', '00634R', '008201', '00635U', '00642U', '00673R', '00674R']
 df = pd.read_csv("etf/ETF_list.csv")
 id_list = df[:]['Number'].values.tolist()
-id_list = ['006208','00900','00885']
+#id_list = ['006208','00900','00885']
 
 def five_line(data):
     timetrend = list(range(1, data.shape[0]+1))
