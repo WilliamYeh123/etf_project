@@ -8,3 +8,4 @@ Werkzeug==2.2.2
 Django==5.0.3
 Flask-APScheduler
 scikit-learn==1.2.2
+FinMind==1.6.5
