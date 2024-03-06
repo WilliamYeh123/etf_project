@@ -28,7 +28,7 @@ handler = WebhookHandler('269bf1d1f6457e1969c6a458ea51867a')
 
 @app.route("/")
 def daily_recommend():
-    line_bot_api.push_message('U6658ff60e29de21166347e537c9b2f65',message = fiveline())
+    line_bot_api.push_message('U6658ff60e29de21166347e537c9b2f65',messages = fiveline())
 class Config(object):
     JOBS = [
         {
