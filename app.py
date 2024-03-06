@@ -26,21 +26,21 @@ handler = WebhookHandler('269bf1d1f6457e1969c6a458ea51867a')
 # album_id = config['imgur_api']['Album_ID']
 # API_Get_Image = config['other_api']['API_Get_Image']
 
-@app.route("/")
-def daily_recommend():
-    line_bot_api.push_message('U6658ff60e29de21166347e537c9b2f65',messages = TextSendMessage(text=fiveline()))
-class Config(object):
-    JOBS = [
-        {
-            'id': 'job1',
-            'func': daily_recommend,
-            #'args': (1, 2),
-            'trigger': 'cron',
-            'hour': 14,
-            'minute':15
-        }
-    ]
-    SCHEDULER_API_ENABLED = True
+# @app.route("/")
+# def daily_recommend():
+#     line_bot_api.push_message('U6658ff60e29de21166347e537c9b2f65',messages = TextSendMessage(text=fiveline()))
+# class Config(object):
+#     JOBS = [
+#         {
+#             'id': 'job1',
+#             'func': daily_recommend,
+#             #'args': (1, 2),
+#             'trigger': 'cron',
+#             'hour': 14,
+#             'minute':15
+#         }
+#     ]
+#     SCHEDULER_API_ENABLED = True
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -64,8 +64,15 @@ def callback():
 def handle_message(event):
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
-    if event.message.text.lower() == "hello":
-        content = 'hi~'
+    if event.message.text.lower() == "etf":
+        content = fiveline('etf')
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+    
+    if event.message.text.lower() == "stock":
+        content = fiveline('stock')
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
