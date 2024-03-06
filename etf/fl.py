@@ -98,6 +98,9 @@ def fiveline():
     #print(return_data)
     reply = ''
     for data in return_data:
-        reply += f'{data[0]}低於悲觀線，股票價格 : '+price+'，可買進\n'
-    return reply
-#fiveline()
+        reply += f'{data[0]}低於悲觀線，股票價格 : {price}，可買進\n'
+    if reply == '':
+        return 'none'
+    else:
+        return reply
+#print(fiveline())

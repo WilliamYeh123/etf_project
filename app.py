@@ -26,6 +26,7 @@ handler = WebhookHandler('269bf1d1f6457e1969c6a458ea51867a')
 # album_id = config['imgur_api']['Album_ID']
 # API_Get_Image = config['other_api']['API_Get_Image']
 
+@app.route("/")
 def daily_recommend():
     line_bot_api.push_message('U6658ff60e29de21166347e537c9b2f65',message = fiveline())
 class Config(object):
@@ -35,8 +36,8 @@ class Config(object):
             'func': daily_recommend,
             #'args': (1, 2),
             'trigger': 'cron',
-            'hour': 13,
-            'minute':45
+            'hour': 14,
+            'minute':15
         }
     ]
     SCHEDULER_API_ENABLED = True
