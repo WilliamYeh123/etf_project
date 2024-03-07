@@ -104,7 +104,7 @@ def fiveline(type):
         slope.append([id,beta])
         #print(slope)
         etf_data[id] = df2
-        draw_fl(df2)
+        #draw_fl(df2)
 
     #print(slope)
     return_data = []
@@ -136,5 +136,5 @@ def fiveline(type):
         return 'none'
     else:
         return reply
-print(fiveline('stock'))
+#print(fiveline('stock'))
 
