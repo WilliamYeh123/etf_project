@@ -12,7 +12,8 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-from etf.fl import fiveline
+from etf.fl import fiveline, draw_stock
+import os
 from flask_apscheduler import APScheduler
 
 app = Flask(__name__)
@@ -70,12 +71,24 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content))
         return 0
-    
+
     if event.message.text.lower() == "stock":
         content = fiveline('stock')
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
+        return 0
+    if 'draw' in event.message.text:
+        stock_id = event.message.text[5:]
+        draw_stock(stock_id)
+        #content = fiveline('stock')
+        image_path = f'images/{stock_id}_fl.png'
+        if os.path.exists(image_path):
+            image_message = ImageSendMessage(original_content_url='file://' + image_path,
+                                              preview_image_url='file://' + image_path)
+            line_bot_api.reply_message(event.reply_token, image_message)
+        else:
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Image not found"))
         return 0
 
 if __name__ == '__main__':
