@@ -82,7 +82,7 @@ def handle_message(event):
         stock_id = event.message.text[5:]
         draw_stock(stock_id)
         #content = fiveline('stock')
-        image_path = f'images/{stock_id}_fl.png'
+        image_path = f'etf/images/{stock_id}_fl.png'
         if os.path.exists(image_path):
             image_message = ImageSendMessage(original_content_url='file://' + image_path,
                                               preview_image_url='file://' + image_path)

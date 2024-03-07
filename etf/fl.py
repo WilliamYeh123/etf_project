@@ -34,7 +34,7 @@ def draw_fl(df,name):
     plt.ylabel('Value')
     plt.title('Graph with Different Colors for Each Column')
     plt.show()
-    plt.savefig(f'images/{name}_fl.png')
+    plt.savefig(f'etf/images/{name}_fl.png')
 
 def draw_stock(id):
     TaiwanStockTotalReturnIndex = api.taiwan_stock_daily(
