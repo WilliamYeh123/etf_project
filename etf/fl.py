@@ -48,7 +48,7 @@ def draw_stock(id):
     beta = beta[0][0]
     slope.append([id,beta])
     etf_data[id] = df2
-    draw_fl(df2)
+    draw_fl(df2, id)
 def five_line(data):
     timetrend = list(range(1, data.shape[0]+1))
     data['timetrend'] = timetrend
